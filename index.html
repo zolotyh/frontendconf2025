@@ -18,7 +18,7 @@
 
 
   <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <link rel="stylesheet" href="plugin/highlight/github.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         <h2>От мечты к провалу</h2>
         <p>как загубить фронтенд-проект</p>
       </section>
-      <section style="font-size: 0.8em;" data-me="true" data-background-color="rgb(29 66 95)" data-transition="none"
+      <section style="font-size: 0.8em;" data-me="true" data-background-color="#2E2C2C" data-transition="none"
         data-background-transition="none">
         <h1 data-addclass="animate__animated animate__bounceindown">
           Алексей Золотых
@@ -49,6 +49,21 @@
         <img src="./img/holyjs.svg" style="height: 50vh" alt="" />
       </section>
       <section>
+        <h2>Чем губить</h2>
+        <ol>
+          <li>Именованием</li>
+          <li>DRY</li>
+          <li>Фронтопсом</li>
+          <li>Лишними мапингами</li>
+          <li>Типами</li>
+          <li>Незаконченными миграциями</li>
+          <li>Cервером</li>
+        </ol>
+      </section>
+      <section data-background-color="#ffd139">
+        <h2>Пролог</h2>
+      </section>
+      <section>
         <blockquote cite="" style="font-style: normal; font-weight: 500; font-size: 0.7em">
           Бабочка взмахивает крыльями в Китае и колеблет воздух, и, в конце концов, <br />на Нью-Йорк обрушивается шторм
         </blockquote>
@@ -65,53 +80,102 @@
           </ul>
         </aside>
       </section>
-      <section>
-        <h3>План на сегодня</h3>
-        <ol style="font-weight: 300">
-          <li>DRY
-            <ul>
-              <li>Код</li>
-              <li>Части проекта</li>
-              <li>Конфиги</li>
-            </ul>
-          </li>
-          <li>Имена и типы</li>
-          <li>Большие изменения</li>
-          <li>Перформанс</li>
-        </ol>
+      <section data-background-color="#ffd139">
+        <h1>I</h1>
+        <h2>Про имена пакетов</h2>
       </section>
       <section>
-        <h1>DRY</h1>
-        <p>Don’t repeat yourself</p>
+        <h2>Файлы</h2>
+        <img src="img/mo.png" alt="">
+      </section>
+      <section>
+        <h2>Редакторы</h2>
+        <img src="img/mo2.png" alt="">
       </section>
       <section data-transition="slide none">
-        <img src="img/tetris.svg" alt="">
+        <img src="./img/f_e.svg" alt="">
+      </section>
+      <section data-transition="none">
+        <img src="./img/f_e2.svg" alt="">
       </section>
       <section data-transition="none slide">
-        <img src="img/tetris2.svg" alt="">
+        <img src="./img/common.svg" alt="">
       </section>
       <section>
-        <p>А всегда ли это работает?</p>
+        <div class="container" style="display: flex;">
+          <div style="flex:1;">
+            <img style="max-width: 30vw;" src="img/i1.png" alt="">
+          </div>
+          <div style="flex:2;">
+            <img style="max-width: 30vw;" src="img/i2.png" alt="">
+          </div>
+        </div>
       </section>
       <section>
+        <img src="img/commits.png" alt="">
+      </section>
+      <section data-background-video="./img/gta.mp4"> </section>
+      <section>
+        <h2>А что есть common!?</h2>
+        <ul>
+          <li>Авторизация</li>
+          <li>Обшие компоненты</li>
+          <li>Веб клиент</li>
+          <li>Какие-то виджеты</li>
+        </ul>
+      </section>
+      <section data-transition="none slide">
+        <img src="./img/common.svg" alt="">
+      </section>
+      <section data-transition="none">
+        <img src="./img/copy2.svg" alt="">
+      </section>
+      <section>
+        <img src="./img/npm.svg" alt="">
+      </section>
+      <section>
+        <h2>Не называй так</h2>
+        <p>
+          <strike>shared</strike>, <strike>common</strike>, <strike>utils</strike>, <strike>misc</strike>,
+          <strike>stuff</strike>, <strike>tools</strike>,
+          <strike>core</strike>, <strike>base</strike>, <strike>main</strike>, <strike>lib</strike>
+        </p>
+        <h2 class="fragment r-fit-text">Используй конкретные имена</h2>
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Семантика важна</li>
+          <li>Coupling and Cohesion не только в коде</li>
+        </ul>
+      </section>
+      <section>
+        <img style="max-width: 80vh;" src="img/coupling-cohesion-light.svg" alt="">
+      </section>
+      <section data-background-color="#ffd139">
+        <h1>II</h1>
+        <h2>Переиспользуем компоненты</h2>
+      </section>
+      <section>
+          <h2>Карточка товара</h2>
         <pre style="font-size: 0.44em"><code data-trim data-line-numbers="1-17|1|4-5|6-11|12-14">
-            function ProductCard({ product }) {
-            return (
-            &lt;div className=&quot;product-card&quot;&gt;
-            &lt;img src={product.image} alt={product.name} /&gt;
-            &lt;h3&gt;{product.name}&lt;/h3&gt;
-            &lt;div className=&quot;price&quot;&gt;
-            &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
-            {product.oldPrice &amp;&amp; (
-            &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
-            )}
-            &lt;/div&gt;
-            &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
-            В корзину
-            &lt;/button&gt;
-            &lt;/div&gt;
-            );
-            }
+function ProductCard({ product }) {
+  return (
+    &lt;div className=&quot;product-card&quot;&gt;
+      &lt;img src={product.image} alt={product.name} /&gt;
+      &lt;h3&gt;{product.name}&lt;/h3&gt;
+      &lt;div className=&quot;price&quot;&gt;
+        &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
+        {product.oldPrice &amp;&amp; (
+          &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
+        )}
+      &lt;/div&gt;
+      &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
+        В корзину
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
           </code></pre>
       </section>
       <section>
@@ -131,40 +195,41 @@
         </table>
       </section>
       <section>
+          <h2>Компактный блок</h2>
         <pre style="font-size: 0.44em"><code data-trim data-line-numbers="1-33|1|2-14|16-23|25-31">
-            function ProductCard({ product, layout = &#39;default&#39; }) {
-            const renderPrice = () =&gt; {
-            if (layout === &#39;compact&#39;) {
-            return &lt;span className=&quot;price-compact&quot;&gt;${product.price}&lt;/span&gt;;
-            }
-            return (
-            &lt;div className=&quot;price&quot;&gt;
-            &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
-            {product.oldPrice &amp;&amp; (
-            &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
-            )}
-            &lt;/div&gt;
-            );
-            };
+function ProductCard({ product, layout = 'default' }) {
+  const renderPrice = () =&gt; {
+    if (layout === 'compact') {
+      return &lt;span className=&quot;price-compact&quot;&gt;${product.price}&lt;/span&gt;;
+    }
+    return (
+      &lt;div className=&quot;price&quot;&gt;
+        &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
+        {product.oldPrice &amp;&amp; (
+          &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
+        )}
+      &lt;/div&gt;
+    );
+  };
 
-            const renderButton = () =&gt; {
-            const buttonText = layout === &#39;minimal&#39; ? &#39;Купить&#39; : &#39;В корзину&#39;;
-            return (
-            &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
-            {buttonText}
-            &lt;/button&gt;
-            );
-            };
+  const renderButton = () =&gt; {
+    const buttonText = layout === 'minimal' ? 'Купить' : 'В корзину';
+    return (
+      &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
+        {buttonText}
+      &lt;/button&gt;
+    );
+  };
 
-            return (
-            &lt;div className={`product-card product-card--${layout}`}&gt;
-            &lt;img src={product.image} alt={product.name} /&gt;
-            &lt;h3&gt;{product.name}&lt;/h3&gt;
-            {renderPrice()}
-            {renderButton()}
-            &lt;/div&gt;
-            );
-            }
+  return (
+    &lt;div className={`product-card product-card--${layout}`}&gt;
+      &lt;img src={product.image} alt={product.name} /&gt;
+      &lt;h3&gt;{product.name}&lt;/h3&gt;
+      {renderPrice()}
+      {renderButton()}
+    &lt;/div&gt;
+  );
+}
           </code></pre>
       </section>
       <section>
@@ -185,36 +250,36 @@
       </section>
       <section>
         <pre style="font-size: .44em"><code data-trim data-line-numbers="1-30|1-9|10-18|20-27|29">
-            function ProductCard({
-            product,
-            layout = &#39;default&#39;,
-            theme = &#39;light&#39;,
-            showRating = true,
-            showBadge = true,
-            buttonAction = &#39;cart&#39;,
-            priceFormat = &#39;standard&#39;
-            }) {
-            const getLayoutConfig = () =&gt; {
-            const configs = {
-            default: { imageSize: &#39;large&#39;, titleSize: &#39;h3&#39;, spacing: &#39;normal&#39; },
-            compact: { imageSize: &#39;medium&#39;, titleSize: &#39;h4&#39;, spacing: &#39;small&#39; },
-            minimal: { imageSize: &#39;small&#39;, titleSize: &#39;h5&#39;, spacing: &#39;tiny&#39; },
-            featured: { imageSize: &#39;xlarge&#39;, titleSize: &#39;h2&#39;, spacing: &#39;large&#39; }
-            };
-            return configs[layout] || configs.default;
-            };
+function ProductCard({
+  product,
+  layout = 'default',
+  theme = 'light',
+  showRating = true,
+  showBadge = true,
+  buttonAction = 'cart',
+  priceFormat = 'standard'
+}) {
+  const getLayoutConfig = () =&gt; {
+    const configs = {
+      default: { imageSize: 'large', titleSize: 'h3', spacing: 'normal' },
+      compact: { imageSize: 'medium', titleSize: 'h4', spacing: 'small' },
+      minimal: { imageSize: 'small', titleSize: 'h5', spacing: 'tiny' },
+      featured: { imageSize: 'xlarge', titleSize: 'h2', spacing: 'large' }
+    };
+    return configs[layout] || configs.default;
+  };
 
-            const renderPrice = () =&gt; {
-            const formatters = {
-            standard: () =&gt; renderStandardPrice(),
-            compact: () =&gt; renderCompactPrice(),
-            currency: () =&gt; renderCurrencyPrice()
-            };
-            return formatters[priceFormat]?.() || formatters.standard();
-            };
+  const renderPrice = () =&gt; {
+    const formatters = {
+      standard: () =&gt; renderStandardPrice(),
+      compact: () =&gt; renderCompactPrice(),
+      currency: () =&gt; renderCurrencyPrice()
+    };
+    return formatters[priceFormat]?.() || formatters.standard();
+  };
 
-            // ... остальная логика
-            }
+  // ... остальная логика
+}
           </code></pre>
       </section>
       <section>
@@ -233,8 +298,19 @@
           </tr>
         </table>
       </section>
+      <section data-background-video="./img/z5.mp4"> </section>
       <section>
-        <p>Вы еще помните чего мы там <b>DRY</b>им?</p>
+        <h2>Композиция и SRP</h2>
+        <pre style="font-size: 0.5em"><code data-trim>
+            &lt;Card&gt;
+              &lt;CardImage src={product.image} /&gt;
+              &lt;CardTitle&gt;{product.name}&lt;/CardTitle&gt;
+              &lt;CardPrice price={product.price} oldPrice={product.oldPrice} /&gt;
+              &lt;CardButton onClick={() =&gt; addToCart(product.id)}&gt;
+              В корзину
+              &lt;/CardButton&gt;
+            &lt;/Card&gt;
+          </code></pre>
       </section>
       <section>
         <h2>Может повторение не так и страшно?</h2>
@@ -245,30 +321,18 @@
           </code></pre>
       </section>
       <section>
-        <h2>Композиция</h2>
-        <pre style="font-size: 0.5em"><code data-trim>
-            &lt;Card&gt;
-            &lt;CardImage src={product.image} /&gt;
-            &lt;CardTitle&gt;{product.name}&lt;/CardTitle&gt;
-            &lt;CardPrice price={product.price} oldPrice={product.oldPrice} /&gt;
-            &lt;CardButton onClick={() =&gt; addToCart(product.id)}&gt;
-            В корзину
-            &lt;/CardButton&gt;
-            &lt;/Card&gt;
-          </code></pre>
-      </section>
-      <section>
-        <h2>А что выбрать?</h2>
+        <h2>Может есть что-то помимо DRY</h2>
       </section>
       <section>
         <b>WET</b> (Write Everything Twice) принцип
         <p style="font-size: 0.7em">дублировать код до понимания реальных паттернов</p>
-      </section>
-      <section>
+          <br>
+          <br>
         <b>AHA</b> (Avoid Hasty Abstractions) принцип
         <p style="font-size: 0.7em">золотая середина между DRY и WET</p>
       </section>
       <section>
+        <b>AHA</b> (Avoid Hasty Abstractions) принцип
         <ul style="font-size: 0.7em">
           <li>Дождитесь появления абстракции в трех или более местах</li>
           <li>Убедитесь, что паттерн действительно устойчив</li>
@@ -276,113 +340,85 @@
           <li>Оптимизируйте код для изменений, а не для элегантности</li>
         </ul>
       </section>
-      <section>
-        <h2>Синьорный подход</h2>
-        <p class="fragment">Если будет меняться &mdash; сделай гибче</p>
-        <p class="fragment">Не будет меняться &mdash; копируй</p>
-      </section>
-      <section>
-        <h2>Нужно погрузиться в бизнес</h2>
-      </section>
-      <section>
-        Еще раз про DRY
-      </section>
-      <section>
-        <h2>Файлы</h2>
-        <img src="img/mo.png" alt="">
-      </section>
-      <section>
-        <h2>Редакторы</h2>
-        <img src="img/mo2.png" alt="">
-      </section>
-      <section data-transition="slide none">
-        <img src="./img/f_e.svg" alt="">
-      </section>
-      <section data-transition="none slide">
-        <img src="./img/f_e2.svg" alt="">
-      </section>
-      <section>
-        <img src="./img/common.svg" alt="">
-      </section>
-      <section>
-        <p>Ломающие изменения</p>
-        <img src="img/chat.svg" style="max-height: 60vh" alt="">
-      </section>
-      <section>
-        <p>Баги</p>
-        <img src="img/chat3.svg" style="max-height: 60vh" alt="">
-      </section>
-      <section>
-        <img src="./img/common.png" alt="">
-      </section>
-      <section>
-        <h2>А что есть common!?</h2>
+        <section>
+          <h2 class="r-fit-text">Самый гибкий фреймворк &mdash; язык программирования</h2>
+          <img style="min-height: 60vh;" src="img/pl.svg" alt="">
+        </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
         <ul>
-          <li>Авторизация</li>
-          <li>Обшие компоненты</li>
-          <li>Веб клиент</li>
-          <li>Какие-то виджеты</li>
+          <li>Нужно уметь предсказывать
+              <ul>
+                <li>Понимать бизнес</li>
+                <li>Уметь жить в режиме неопределенности</li>
+              </ul>
+            </li>
+          <li>Принципы переоценены</li>
         </ul>
       </section>
       <section>
-        <img src="./img/npm.svg" alt="">
+        <p>Если будет меняться &mdash; сделай гибче</p>
+        <p>Не будет меняться &mdash; копируй</p>
       </section>
-      <section>
-        <h2>Синьорный подход</h2>
-        <ul>
-          <li class="fragment">Семантика важна</li>
-          <li class="fragment">Важно быть простым и понятным</li>
-          <li class="fragment">Последствия решений</li>
-        </ul>
-      </section>
-      <section>
-        <h2>DRY в конфигурации</h2>
-        <p>или конфигурация ради конфигурации</p>
+        <section>
+          <h2 class="r-fit-text">И пусть весь мир подождет...</h2>
+          <img style="height: 40vh;" src="img/lazy.svg" alt="">
+        </section>
+
+      <section data-background-color="#ffd139">
+        <h1>III</h1>
+        <h2>Про настройки</h2>
       </section>
       <section>
         <h2>Webpack</h2>
-        <pre><code class="javascript" data-trim>
-            const path = require(&#39;path&#39;);
+        <pre style="font-size: 0.2em;"><code class="javascript" data-trim>
+const path = require('path');
 
-            module.exports = {
-            entry: &#39;./src/index.js&#39;,
-            output: {
-            path: path.resolve(__dirname, &#39;dist&#39;),
-            filename: &#39;bundle.js&#39;,
-            clean: true,
-            },
-            mode: &#39;development&#39;,
-            module: {
-            rules: [
-            {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: {
-            loader: &#39;babel-loader&#39;,
-            options: {
-            presets: [&#39;@babel/preset-env&#39;, &#39;@babel/preset-react&#39;],
-            },
-            },
-            },
-            {
-            test: /\.css$/,
-            use: [&#39;style-loader&#39;, &#39;css-loader&#39;],
-            },
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+    clean: true,
+  },
+  mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env', '@babel/preset-react'
             ],
-            },
-            resolve: {
-            extensions: [&#39;.js&#39;, &#39;.jsx&#39;],
-            },
-            devServer: {
-            static: path.join(__dirname, &#39;dist&#39;),
-            compress: true,
-            port: 3000,
-            },
-            };
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ],
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  devServer: {
+    static: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3000,
+  },
+};
           </code></pre>
       </section>
       <section>
-        У нас много команд, давайте переиспользуем этот замечательный config
+        <div style="text-align: left; font-size: 0.7em;">
+            <p>&mdash; Сейчас у каждого свой конфиг! Давайте переиспользовать!</p>
+            <p>&mdash; Зачем?</p>
+            <p>&mdash; Вот нужно будет поменять...</p>
+          </div>
       </section>
       <section>
         <h2>Все просто</h2>
@@ -391,49 +427,51 @@
           </code></pre>
       </section>
       <section>
-        <h2>&mdash; Мне нужно добавить плагин!</h2>
+        <p>&mdash; Мне нужно добавить плагин!</p>
       </section>
       <section data-transition="slide none">
         <h2>Все просто</h2>
-        <pre><code data-trim class="javascript">
+        <pre style="font-size: 0.5em;"><code data-trim class="javascript">
             const commonConfig = require(&#39;@my-company/configs/webpack.config&#39;);
 
             // свой плагин
             module.exports = {
-            ...commonConfig,
-            plugins : [mySuperPlugin]
+              ...commonConfig,
+              plugins : [mySuperPlugin]
             }
           </code></pre>
       </section>
       <section data-transition="none slide">
         <h2>Все просто</h2>
-        <pre><code data-trim class="javascript" data-line-numbers>
+        <pre style="font-size: 0.5em;"><code data-trim class="javascript" data-line-numbers>
             const commonConfig = require(&#39;@my-company/configs/webpack.config&#39;);
 
             module.exports = {
-            ...commonConfig,
-            plugins : [
-            ...commonConfig.plugins,
-            mySuperPlugin
-            ]
+              ...commonConfig,
+              plugins : [
+                ...commonConfig.plugins,
+                mySuperPlugin
+              ]
             }
           </code></pre>
       </section>
       <section>
-        Добро пожаловать в ад!
-        <ul>
-          <li class="fragment">Некоторые плагины нужно перенастраивать</li>
-          <li class="fragment">У всех разные правила</li>
-          <li class="fragment">У всех разные сервера разработки</li>
-        </ul>
+          <h2 class="r-fit-text">
+            Добро пожаловать в ад!
+          </h2>
+        <div style="text-align: left;">
+          <p class="fragment">&mdash; Некоторые плагины нужно перенастраивать</p>
+          <p class="fragment">&mdash; У всех разные правила</p>
+          <p class="fragment">&mdash; У всех разные сервера разработки</p>
+        </div>
       </section>
       <section>
         <h2>Что происходит дальше</h2>
-        <ul>
-          <li>Нам нужен frontops!</li>
-          <li>Пишем фреймворк на настройке конфигов</li>
-          <li>Не меняй корневой пакет, не понятно где все упадет</li>
-        </ul>
+        <div style="text-align: left;">
+          <p>&mdash; Нам нужен frontOPS!</p>
+          <p>&mdash; Пишем фреймворк на настройке конфигов</p>
+          <p>&mdash; Не меняй корень, не понятно где все упадет</p>
+        </div>
       </section>
       <section>Помните react-scripts?</section>
       <section>
@@ -442,74 +480,57 @@
           allows you to get all of the benefits of Create React App without
           ejecting
         </blockquote>
-        <pre class="fragment">
-          CREATE
-          REACT
-          APP
-          CONFIGURATION
-          OVERRIDE
-        </pre>
+        <pre class="fragment">CREATE
+REACT
+APP
+CONFIGURATION
+OVERRIDE</pre>
       </section>
-      <section style="text-align: left">
-        <p>&mdash; Зачем мы это делали?</p>
-        <p>&mdash; Хотели единый конфиг!</p>
-      </section>
-      <section style="text-align: left">
-        <p>&mdash; Зачем нам единый конфиг?</p>
-        <p>
-          &mdash; Чтобы не настраивать webpack каждый раз, чтобы менять все
-          настройки в одном месте
-        </p>
-      </section>
-      <section style="text-align: left">
-        <p>
-          &mdash; Сколько стоит настроить вебпак для каждого проекта и менять
-          каждый конфиг отдельно?
-        </p>
-        <p>&mdash; Да фиг его знает!</p>
-      </section>
+      <section data-background-video="./img/z5.mp4"> </section>
       <section>
-        <p>
-          Лучше иметь одну стратегию
-        </p>
+        <h2>
+            Вывод: выбери одно!
+        </h2>
         <ul>
-          <li class="fragment">Переиспользовать и запрещать менять</li>
-          <li class="fragment">Не переиспользовать</li>
+          <li>Переиспользовать и запрещать менять</li>
+          <li>Не переиспользовать</li>
         </ul>
       </section>
-      <section>
-        <h2>Синьорный подход</h2>
-        <p>Важно придерживаться одной стратегии</p>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Ownership <small style="vertical-align: middle;">( делали бы вы это все за свои деньги?)</small></li>
+          <li>&laquo;Одинаковость&raquo; не окупается</li>
+          <li>Умение договориться</li>
+        </ul>
+      </section>
+      <section data-background-color="#ffd139">
+        <h1>IV</h1>
+        <h2>Про имена</h2>
       </section>
       <section>
-        <h2 class="r-fit-text">Имена и типы</h2>
-      </section>
-      <section>
-        <img src="img/login.png" alt="" />
-      </section>
-      <section>
-        <pre><code>
+        <pre><code data-trim>
             type LoginData = {
-            "login": "string",
-            "password": "string"
+              "login": "string",
+              "password": "string"
             }
           </code></pre>
       </section>
       <section>
-        <h2>JSON</h2>
+        <h2>На сервере</h2>
         <pre><code data-trim>
             {
-            "username": "aleksei.zolotykh",
-            "password": "123456"
+              "username": "aleksei.zolotykh",
+              "password": "123456"
             }
           </code></pre>
       </section>
       <section>
         <pre><code data-trim>
             const login = ({login, password}) =&gt; {
-            return fetch(&#39;/login&#39;, {
-            body: JSON.stringify({username: login , password}
-            })
+              return fetch(&#39;/login&#39;, {
+                body: JSON.stringify({username: login , password}
+              })
             }
           </code></pre>
       </section>
@@ -517,21 +538,22 @@
       <section>
         <pre><code class="js" data-trim>
             const users = [
-            {login: "admin", ...},
-            {login: "superadmin", ...},
-            {login: "zolotyh", ...}
+              {login: "admin", ...},
+              {login: "superadmin", ...},
+              {login: "zolotyh", ...}
             ]
           </code></pre>
       </section>
       <section>
-        <pre><code class="javascript" data-trim>
-            users.map(
-            (user) =&gt; {
-            ...user,
-            username: user.login
-            }
-            )
-          </code></pre>
+          <h2>Маппинг в массивах</h2>
+        <!-- <pre><code class="javascript" data-trim> -->
+        <!--     users.map( -->
+        <!--       (user) =&gt; { -->
+        <!--       ...user, -->
+        <!--       username: user.login -->
+        <!--     } -->
+        <!--     ) -->
+        <!--   </code></pre> -->
         <pre class="fragment"><code class="json" data-trim>
             {
             "login": "admin",
@@ -539,88 +561,63 @@
             }
           </code></pre>
         <pre class="fragment"><code class="javascript" data-trim>
-            users.map(
-            ({login, ...rest}) =&gt; {
-            ...rest,
-            username: login
-            }
-            )
+            users.map(({login, ...rest}) =&gt; {
+                ...rest,
+                username: login
+            })
           </code></pre>
       </section>
       <section>Эта проблема может быть масштабней</section>
       <section>Проект может до 80% состоять из маппингов</section>
+      <section data-background-video="./img/gta.mp4"> </section>
       <section>
         Этой проблемы бы не было, если бы контракт был бы прописан вначале!
       </section>
       <section>
         <pre><code class="yaml" style="font-size: 0.5em; line-height: 1.1" data-line-numbers="1-31|5|13|17-32">
-            openapi: 3.0.0
-            ...
-            paths:
-            /auth/login:
-            post:
-            ...
-            requestBody:
-            required: true
-            content:
-            application/json:
+openapi: 3.0.0
+info:
+  title: API Documentation
+  version: 1.0.0
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      requestBody:
+        required: true
+        content:
+          application/json:
             schema:
-            $ref: '#/components/schemas/LoginCredentials'
-            ...
-            components:
-            schemas:
-            LoginCredentials:
-            type: object
-            required:
-            - username
-            - password
-            properties:
-            username:
-            type: string
-            description: User's username or email
-            example: johndoe
-            password:
-            type: string
-            description: User's password
-            format: password
-            example: securePassword123!
-            writeOnly: true
+              $ref: '#/components/schemas/LoginCredentials'
+      responses:
+        '200':
+          description: Successful login
+components:
+  schemas:
+    LoginCredentials:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: User's username or email
+          example: johndoe
+        password:
+          type: string
+          description: User's password
+          format: password
+          example: securePassword123!
+          writeOnly: true
           </code></pre>
       </section>
-      <section>Типы</section>
-      <section>
-        <pre><code class="typescript" data-trim>
-            interface User {
-            id?: string; // теоретически может быть undefined
-            name: string;
-            }
-          </code></pre>
+      <section data-background-color="#ffd139">
+        <h1>V</h1>
+        <h2>Про долгие миграции</h2>
       </section>
       <section>
-        <pre><code class="typescript" data-trim>
-            function processUser(user: User) {
-            // Ошибка TS: 'id' возможно undefined
-            console.log(user.id.toUpperCase());
-            }
-          </code></pre>
-      </section>
-      <section>
-        <pre><code data-trim>
-            interface User {
-            id: string;
-            name: string;
-            }
-
-            type UnsavedUser = Omit&lt;User, &quot;id&quot;&gt;
-          </code></pre>
-      </section>
-      <section>
-        <h2 class="r-fit-text">Про незаконченные миграции</h2>
-      </section>
-      <section>
-        <h2>Большая миграция через правило туриста</h2>
-      </section>
-      <section>
+          <h2>Разработчик</h2>
         <ul>
           <li>Я хочу уйти от Redux к Redux Saga</li>
           <li class="fragment">Вот прототип</li>
@@ -629,7 +626,8 @@
         </ul>
       </section>
       <section>
-        <blockquote>
+        <h2 class="r-fit-text">Большая миграция через правило туриста</h2>
+        <blockquote style="font-size: 0.7em; text-align: left; border-left: 10px solid #222; padding-left: 0.5em">
           A scout leaves no trace… and tries to leave the world a little
           better than he found it
         </blockquote>
@@ -647,40 +645,140 @@
         </ul>
         <p class="fragment">Надежда, что когда-нибудь это получится</p>
       </section>
+      <section data-background-video="./img/gta.mp4"> </section>
       <section>
         <h2>Что нужно было сделать</h2>
         <ul>
           <li>Будет ли миграция оправдана?</li>
           <li>Можете ли вы позволить себе миграцию?</li>
           <li>Кто будет отвечать за миграцию?</li>
+          <li>Критерий окончания миграции</li>
         </ul>
       </section>
-      <section>
-        <h2>Знай cвои данные!</h2>
-      </section>
-      <section>
-        <h2>Что нужно было сделать</h2>
-        <ul>
-          <li>Будет ли миграция оправдана?</li>
-          <li>Можете ли вы позволить себе миграцию?</li>
-          <li>Кто будет отвечать за миграцию?</li>
-        </ul>
-      </section>
-      <section>
+      <section data-background-color="#2E2C2C">
         <h2>Сеньорный подход</h2>
-        <p>Умей доводить дела до конца</p>
+        <ul>
+          <li>Взять технический долг проще чем в микрозаймах</li>
+          <li>Уметь доводить дела до конца</li>
+          <li>Ownership</li>
+        </ul>
       </section>
-      <section>
-        <h2>Вывод 1</h2>
-        <p>Никто не хотел сделать плохо</p>
+      <section data-background-color="#ffd139">
+        <h1>VI</h1>
+        <h2>Про BFF и лишний сервер</h2>
       </section>
-      <section>
-        <h2>Вывод 2</h2>
-        <p>Задача не заканичвается коммитом в мастер</p>
-      </section>
-      <section>
-        <h2>Вывод 3</h2>
-        <p>Все о чем мы говорили &mdash; это на самом деле про софты</p>
+        <section>
+
+<h2>Что такое BFF</h2>
+                    <div class="mermaid">
+                        <pre>
+%%{init: {'theme':'neutral'}}%%
+graph TB
+    subgraph "Традиционный подход (БЕЗ BFF)"
+        Web1[Web приложение]
+        Mobile1[Mobile приложение]
+        Desktop1[Desktop приложение]
+        
+        Web1 --> API1[Общий API Gateway]
+        Mobile1 --> API1
+        Desktop1 --> API1
+        
+        API1 --> MS1[Микросервис Юзеры]
+        API1 --> MS2[Микросервис Заказы]
+        API1 --> MS3[Микросервис Продукты]
+        API1 --> MS4[Микросервис Оплата]
+        
+        style API1 fill:#ffcccc
+    end
+    
+    subgraph "BFF паттерн (С BFF)"
+        Web2[Web приложение]
+        Mobile2[Mobile приложение]
+        Desktop2[Desktop приложение]
+        
+        Web2 --> BFF1[BFF для Web]
+        Mobile2 --> BFF2[BFF для Mobile]
+        Desktop2 --> BFF3[BFF для Desktop]
+        
+        BFF1 --> CoreMS1[Микросервис Юзеры]
+        BFF1 --> CoreMS2[Микросервис Заказы]
+        BFF1 --> CoreMS3[Микросервис Продукты]
+        
+        BFF2 --> CoreMS1
+        BFF2 --> CoreMS2
+        BFF2 --> CoreMS4[Микросервис Оплата]
+        
+        BFF3 --> CoreMS1
+        BFF3 --> CoreMS2
+        BFF3 --> CoreMS3
+        BFF3 --> CoreMS4
+        
+        style BFF1 fill:#ccffcc
+        style BFF2 fill:#ccffcc
+        style BFF3 fill:#ccffcc
+    end
+                        </pre>
+                    </div>
+<p class="fragment">SSR &mdash; это BFF</p>
+        </section>
+        <section>
+
+<p>Мешает FCP и LCP</p>
+                    <div class="mermaid">
+                        <pre>
+%%{init: {'theme':'neutral'}}%%
+graph TB
+    
+    subgraph "400мс до старта загрузки"
+        Web2[Web приложение]
+        Mobile2[Mobile приложение]
+        Desktop2[Desktop приложение]
+        
+        Web2 --> |100мс|BFF1[BFF для Web]
+        Mobile2 --> BFF2[BFF для Mobile]
+        Desktop2 --> BFF3[BFF для Desktop]
+        
+        BFF1 --> |300мс|CoreMS1[Микросервис Юзеры]
+        BFF1 --> CoreMS2[Микросервис Заказы]
+        BFF1 --> |100мс|CoreMS3[Микросервис Продукты]
+        
+        BFF2 --> CoreMS1
+        BFF2 --> CoreMS2
+        BFF2 --> CoreMS4[Микросервис Оплата]
+        
+        BFF3 --> CoreMS1
+        BFF3 --> CoreMS2
+        BFF3 --> CoreMS3
+        BFF3 --> CoreMS4
+        
+        style BFF1 fill:#ccffcc
+        style BFF2 fill:#ccffcc
+        style BFF3 fill:#ccffcc
+        linkStyle 0 stroke:#ff0000,stroke-width:2px
+        linkStyle 3 stroke:#ff0000,stroke-width:2px
+        linkStyle 5 stroke:#ff0000,stroke-width:2px
+    end
+                        </pre>
+                    </div>
+        </section>
+        <section>
+        <h2>Север требует поддержки</h2>
+        <ul>
+          <li class="fragment">Мониторинг</li>
+          <li class="fragment">Алертинг</li>
+          <li class="fragment">Логирование</li>
+          <li class="fragment">Деплой</li>
+          <li class="fragment">Трейсинг</li>
+          <li class="fragment">Иногда замедляет</li>
+        </ul>
+        </section>
+      <section data-background-video="./img/z5.mp4"> </section>
+      <section data-background-color="#ffd139">
+        <h2>Эпилог</h2>
+          <ul>
+            <li class="fragment">Все хотели сделать хорошо</li>
+            <li class="fragment">Весь сеньорный раздел был про софтскиллы</li>
+          </ul>
       </section>
       <section>
         <h2>Спасибо!</h2>
@@ -699,6 +797,7 @@
   <script src="dist/reveal.js"></script>
   <script src="plugin/notes/notes.js"></script>
   <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/mermaid.js"></script>
   <script src="plugin/highlight/highlight.js"></script>
   <script>
     // More info about initialization & config:
@@ -708,7 +807,7 @@
       hash: true,
 
       // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
     });
     Reveal.on("slidechanged", (event) => {
       const image = document.querySelector(".js-me");
