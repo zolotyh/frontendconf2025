@@ -119,747 +119,747 @@
         <!--     <img class="fragment" src="img/g/2.jpg" /> -->
         <!--     <img class="fragment" src="img/g/3.jpeg" /> -->
         <!--   </div> -->
-        <!-- </section> -->
-        <section data-background-video="./img/gta.mp4"> </section>
-        <section>
-          <h2>А что есть common!?</h2>
-          <ul>
-            <li>Авторизация</li>
-            <li>Обшие компоненты</li>
-            <li>Веб клиент</li>
-            <li>Какие-то виджеты</li>
-          </ul>
-        </section>
-        <section data-transition="none slide">
-          <img src="./img/common.svg" alt="">
-        </section>
-        <section data-transition="none">
-          <img src="./img/copy2.svg" alt="">
-        </section>
-        <section>
-          <img src="./img/npm.svg" alt="">
-        </section>
-        <section>
-          <h2>Не называй так</h2>
-          <p>
-            <strike>shared</strike>, <strike>common</strike>, <strike>utils</strike>, <strike>misc</strike>,
-            <strike>stuff</strike>, <strike>tools</strike>,
-            <strike>core</strike>, <strike>base</strike>, <strike>main</strike>, <strike>lib</strike>
-          </p>
-          <h2 class="fragment r-fit-text">Используй конкретные имена</h2>
-        </section>
-        <section data-background-color="#2E2C2C">
-          <h2>Сеньорный подход</h2>
-          <ul>
-            <li>Семантика важна</li>
-            <li>Coupling and Cohesion не только в коде</li>
-          </ul>
-        </section>
-        <section>
-          <img style="max-width: 80vh;" src="img/coupling-cohesion-light.svg" alt="">
-        </section>
-        <section data-background-color="#ffd139">
-          <h1>II</h1>
-          <h2>Переиспользуем компоненты</h2>
-        </section>
-        <section>
-          <h2>Карточка товара</h2>
-          <pre style="font-size: 0.44em"><code data-trim data-line-numbers="1-17|1|4-5|6-11|12-14">
-              function ProductCard({ product }) {
-              return (
-              &lt;div className=&quot;product-card&quot;&gt;
-              &lt;img src={product.image} alt={product.name} /&gt;
-              &lt;h3&gt;{product.name}&lt;/h3&gt;
-              &lt;div className=&quot;price&quot;&gt;
-              &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
-              {product.oldPrice &amp;&amp; (
-              &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
-              )}
-              &lt;/div&gt;
-              &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
-              В корзину
-              &lt;/button&gt;
-              &lt;/div&gt;
-              );
-              }
-            </code></pre>
-        </section>
-        <section>
-          <table>
-            <tr>
-              <td>20 строк кода</td>
-            </tr>
-            <tr>
-              <td>1 параметр (product)</td>
-            </tr>
-            <tr>
-              <td>30 секунд на понимание логики</td>
-            </tr>
-            <tr>
-              <td>3-5 тестовых случаев для полного покрытия</td>
-            </tr>
-          </table>
-        </section>
-        <section>
-          <h2>Компактный блок</h2>
-          <pre style="font-size: 0.44em"><code data-trim data-line-numbers="1-33|1|2-14|16-23|25-31">
-              function ProductCard({ product, layout = 'default' }) {
-              const renderPrice = () =&gt; {
-              if (layout === 'compact') {
-              return &lt;span className=&quot;price-compact&quot;&gt;${product.price}&lt;/span&gt;;
-              }
-              return (
-              &lt;div className=&quot;price&quot;&gt;
-              &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
-              {product.oldPrice &amp;&amp; (
-              &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
-              )}
-              &lt;/div&gt;
-              );
-              };
+      </section>
+      <section data-background-video="./img/gta.mp4"> </section>
+      <section>
+        <h2>А что есть common!?</h2>
+        <ul>
+          <li>Авторизация</li>
+          <li>Обшие компоненты</li>
+          <li>Веб клиент</li>
+          <li>Какие-то виджеты</li>
+        </ul>
+      </section>
+      <section data-transition="none slide">
+        <img src="./img/common.svg" alt="">
+      </section>
+      <section data-transition="none">
+        <img src="./img/copy2.svg" alt="">
+      </section>
+      <section>
+        <img src="./img/npm.svg" alt="">
+      </section>
+      <section>
+        <h2>Не называй так</h2>
+        <p>
+          <strike>shared</strike>, <strike>common</strike>, <strike>utils</strike>, <strike>misc</strike>,
+          <strike>stuff</strike>, <strike>tools</strike>,
+          <strike>core</strike>, <strike>base</strike>, <strike>main</strike>, <strike>lib</strike>
+        </p>
+        <h2 class="fragment r-fit-text">Используй конкретные имена</h2>
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Семантика важна</li>
+          <li>Coupling and Cohesion не только в коде</li>
+        </ul>
+      </section>
+      <section>
+        <img style="max-width: 80vh;" src="img/coupling-cohesion-light.svg" alt="">
+      </section>
+      <section data-background-color="#ffd139">
+        <h1>II</h1>
+        <h2>Переиспользуем компоненты</h2>
+      </section>
+      <section>
+        <h2>Карточка товара</h2>
+        <pre style="font-size: 0.44em"><code data-trim data-line-numbers="1-17|1|4-5|6-11|12-14">
+            function ProductCard({ product }) {
+            return (
+            &lt;div className=&quot;product-card&quot;&gt;
+            &lt;img src={product.image} alt={product.name} /&gt;
+            &lt;h3&gt;{product.name}&lt;/h3&gt;
+            &lt;div className=&quot;price&quot;&gt;
+            &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
+            {product.oldPrice &amp;&amp; (
+            &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
+            )}
+            &lt;/div&gt;
+            &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
+            В корзину
+            &lt;/button&gt;
+            &lt;/div&gt;
+            );
+            }
+          </code></pre>
+      </section>
+      <section>
+        <table>
+          <tr>
+            <td>20 строк кода</td>
+          </tr>
+          <tr>
+            <td>1 параметр (product)</td>
+          </tr>
+          <tr>
+            <td>30 секунд на понимание логики</td>
+          </tr>
+          <tr>
+            <td>3-5 тестовых случаев для полного покрытия</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Компактный блок</h2>
+        <pre style="font-size: 0.44em"><code data-trim data-line-numbers="1-33|1|2-14|16-23|25-31">
+            function ProductCard({ product, layout = 'default' }) {
+            const renderPrice = () =&gt; {
+            if (layout === 'compact') {
+            return &lt;span className=&quot;price-compact&quot;&gt;${product.price}&lt;/span&gt;;
+            }
+            return (
+            &lt;div className=&quot;price&quot;&gt;
+            &lt;span className=&quot;current-price&quot;&gt;${product.price}&lt;/span&gt;
+            {product.oldPrice &amp;&amp; (
+            &lt;span className=&quot;old-price&quot;&gt;${product.oldPrice}&lt;/span&gt;
+            )}
+            &lt;/div&gt;
+            );
+            };
 
-              const renderButton = () =&gt; {
-              const buttonText = layout === 'minimal' ? 'Купить' : 'В корзину';
-              return (
-              &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
-              {buttonText}
-              &lt;/button&gt;
-              );
-              };
+            const renderButton = () =&gt; {
+            const buttonText = layout === 'minimal' ? 'Купить' : 'В корзину';
+            return (
+            &lt;button onClick={() =&gt; addToCart(product.id)}&gt;
+            {buttonText}
+            &lt;/button&gt;
+            );
+            };
 
-              return (
-              &lt;div className={`product-card product-card--${layout}`}&gt;
-              &lt;img src={product.image} alt={product.name} /&gt;
-              &lt;h3&gt;{product.name}&lt;/h3&gt;
-              {renderPrice()}
-              {renderButton()}
-              &lt;/div&gt;
-              );
-              }
-            </code></pre>
-        </section>
-        <section>
-          <table>
-            <tr>
-              <td>50 строк кода (увеличение в 2.5 раза)</td>
-            </tr>
-            <tr>
-              <td>4 параметра</td>
-            </tr>
-            <tr>
-              <td>3 минуты на понимание</td>
-            </tr>
-            <tr>
-              <td>10 тестовых случаев</td>
-            </tr>
-          </table>
-        </section>
-        <section>
-          <pre style="font-size: .44em"><code data-trim data-line-numbers="1-30|1-9|10-18|20-27|29">
-              function ProductCard({
-              product,
-              layout = 'default',
-              theme = 'light',
-              showRating = true,
-              showBadge = true,
-              buttonAction = 'cart',
-              priceFormat = 'standard'
-              }) {
-              const getLayoutConfig = () =&gt; {
-              const configs = {
-              default: { imageSize: 'large', titleSize: 'h3', spacing: 'normal' },
-              compact: { imageSize: 'medium', titleSize: 'h4', spacing: 'small' },
-              minimal: { imageSize: 'small', titleSize: 'h5', spacing: 'tiny' },
-              featured: { imageSize: 'xlarge', titleSize: 'h2', spacing: 'large' }
-              };
-              return configs[layout] || configs.default;
-              };
+            return (
+            &lt;div className={`product-card product-card--${layout}`}&gt;
+            &lt;img src={product.image} alt={product.name} /&gt;
+            &lt;h3&gt;{product.name}&lt;/h3&gt;
+            {renderPrice()}
+            {renderButton()}
+            &lt;/div&gt;
+            );
+            }
+          </code></pre>
+      </section>
+      <section>
+        <table>
+          <tr>
+            <td>50 строк кода (увеличение в 2.5 раза)</td>
+          </tr>
+          <tr>
+            <td>4 параметра</td>
+          </tr>
+          <tr>
+            <td>3 минуты на понимание</td>
+          </tr>
+          <tr>
+            <td>10 тестовых случаев</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <pre style="font-size: .44em"><code data-trim data-line-numbers="1-30|1-9|10-18|20-27|29">
+            function ProductCard({
+            product,
+            layout = 'default',
+            theme = 'light',
+            showRating = true,
+            showBadge = true,
+            buttonAction = 'cart',
+            priceFormat = 'standard'
+            }) {
+            const getLayoutConfig = () =&gt; {
+            const configs = {
+            default: { imageSize: 'large', titleSize: 'h3', spacing: 'normal' },
+            compact: { imageSize: 'medium', titleSize: 'h4', spacing: 'small' },
+            minimal: { imageSize: 'small', titleSize: 'h5', spacing: 'tiny' },
+            featured: { imageSize: 'xlarge', titleSize: 'h2', spacing: 'large' }
+            };
+            return configs[layout] || configs.default;
+            };
 
-              const renderPrice = () =&gt; {
-              const formatters = {
-              standard: () =&gt; renderStandardPrice(),
-              compact: () =&gt; renderCompactPrice(),
-              currency: () =&gt; renderCurrencyPrice()
-              };
-              return formatters[priceFormat]?.() || formatters.standard();
-              };
+            const renderPrice = () =&gt; {
+            const formatters = {
+            standard: () =&gt; renderStandardPrice(),
+            compact: () =&gt; renderCompactPrice(),
+            currency: () =&gt; renderCurrencyPrice()
+            };
+            return formatters[priceFormat]?.() || formatters.standard();
+            };
 
-              // ... остальная логика
-              }
-            </code></pre>
-        </section>
-        <section>
-          <table>
-            <tr>
-              <td>150 строк кода</td>
-            </tr>
-            <tr>
-              <td>8 параметров конфигурации</td>
-            </tr>
-            <tr>
-              <td>15 минут на понимание логики</td>
-            </tr>
-            <tr>
-              <td>30+ тестовых случаев</td>
-            </tr>
-          </table>
-        </section>
-        <section data-background-video="./img/z5.mp4"> </section>
-        <section>
-          <h2>Композиция и SRP</h2>
-          <pre style="font-size: 0.5em"><code data-trim>
-              &lt;Card&gt;
-              &lt;CardImage src={product.image} /&gt;
-              &lt;CardTitle&gt;{product.name}&lt;/CardTitle&gt;
-              &lt;CardPrice price={product.price} oldPrice={product.oldPrice} /&gt;
-              &lt;CardButton onClick={() =&gt; addToCart(product.id)}&gt;
-              В корзину
-              &lt;/CardButton&gt;
-              &lt;/Card&gt;
-            </code></pre>
-        </section>
-        <section>
-          <h2>Может повторение не так и страшно?</h2>
-          <pre style="font-size: 0.5em"><code data-trim>
-              &lt;CompactProductCard product={product} /&gt;
-              &lt;FeaturedProductCard product={product} /&gt;
-              &lt;MinimalProductCard product={product} /&gt;
-            </code></pre>
-        </section>
-        <section>
-          <h2>Может есть что-то помимо DRY</h2>
-        </section>
-        <section>
-          <b>WET</b> (Write Everything Twice) принцип
-          <p style="font-size: 0.7em">дублировать код до понимания реальных паттернов</p>
-          <br>
-          <br>
-          <b>AHA</b> (Avoid Hasty Abstractions) принцип
-          <p style="font-size: 0.7em">золотая середина между DRY и WET</p>
-        </section>
-        <section>
-          <b>AHA</b> (Avoid Hasty Abstractions) принцип
-          <ul style="font-size: 0.7em">
-            <li>Дождитесь появления абстракции в трех или более местах</li>
-            <li>Убедитесь, что паттерн действительно устойчив</li>
-            <li>Создавайте абстракции на основе реального опыта, а не предположений</li>
-            <li>Оптимизируйте код для изменений, а не для элегантности</li>
-          </ul>
-        </section>
-        <section>
-          <h2 class="r-fit-text">Самый гибкий фреймворк &mdash; язык программирования</h2>
-          <img style="min-height: 60vh;" src="img/pl.svg" alt="">
-        </section>
-        <section data-background-color="#2E2C2C">
-          <h2>Сеньорный подход</h2>
-          <ul>
-            <li>Нужно уметь предсказывать
-              <ul>
-                <li>Понимать бизнес</li>
-                <li>Уметь жить в режиме неопределенности</li>
-              </ul>
-            </li>
-            <li>Принципы переоценены</li>
-          </ul>
-        </section>
-        <section>
-          <p>Если будет меняться &mdash; сделай гибче</p>
-          <p>Не будет меняться &mdash; копируй</p>
-        </section>
-        <section>
-          <h2 class="r-fit-text">И пусть весь мир подождет...</h2>
-          <img style="height: 40vh;" src="img/lazy.svg" alt="">
-        </section>
+            // ... остальная логика
+            }
+          </code></pre>
+      </section>
+      <section>
+        <table>
+          <tr>
+            <td>150 строк кода</td>
+          </tr>
+          <tr>
+            <td>8 параметров конфигурации</td>
+          </tr>
+          <tr>
+            <td>15 минут на понимание логики</td>
+          </tr>
+          <tr>
+            <td>30+ тестовых случаев</td>
+          </tr>
+        </table>
+      </section>
+      <section data-background-video="./img/z5.mp4"> </section>
+      <section>
+        <h2>Композиция и SRP</h2>
+        <pre style="font-size: 0.5em"><code data-trim>
+            &lt;Card&gt;
+            &lt;CardImage src={product.image} /&gt;
+            &lt;CardTitle&gt;{product.name}&lt;/CardTitle&gt;
+            &lt;CardPrice price={product.price} oldPrice={product.oldPrice} /&gt;
+            &lt;CardButton onClick={() =&gt; addToCart(product.id)}&gt;
+            В корзину
+            &lt;/CardButton&gt;
+            &lt;/Card&gt;
+          </code></pre>
+      </section>
+      <section>
+        <h2>Может повторение не так и страшно?</h2>
+        <pre style="font-size: 0.5em"><code data-trim>
+            &lt;CompactProductCard product={product} /&gt;
+            &lt;FeaturedProductCard product={product} /&gt;
+            &lt;MinimalProductCard product={product} /&gt;
+          </code></pre>
+      </section>
+      <section>
+        <h2>Может есть что-то помимо DRY</h2>
+      </section>
+      <section>
+        <b>WET</b> (Write Everything Twice) принцип
+        <p style="font-size: 0.7em">дублировать код до понимания реальных паттернов</p>
+        <br>
+        <br>
+        <b>AHA</b> (Avoid Hasty Abstractions) принцип
+        <p style="font-size: 0.7em">золотая середина между DRY и WET</p>
+      </section>
+      <section>
+        <b>AHA</b> (Avoid Hasty Abstractions) принцип
+        <ul style="font-size: 0.7em">
+          <li>Дождитесь появления абстракции в трех или более местах</li>
+          <li>Убедитесь, что паттерн действительно устойчив</li>
+          <li>Создавайте абстракции на основе реального опыта, а не предположений</li>
+          <li>Оптимизируйте код для изменений, а не для элегантности</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="r-fit-text">Самый гибкий фреймворк &mdash; язык программирования</h2>
+        <img style="min-height: 60vh;" src="img/pl.svg" alt="">
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Нужно уметь предсказывать
+            <ul>
+              <li>Понимать бизнес</li>
+              <li>Уметь жить в режиме неопределенности</li>
+            </ul>
+          </li>
+          <li>Принципы переоценены</li>
+        </ul>
+      </section>
+      <section>
+        <p>Если будет меняться &mdash; сделай гибче</p>
+        <p>Не будет меняться &mdash; копируй</p>
+      </section>
+      <section>
+        <h2 class="r-fit-text">И пусть весь мир подождет...</h2>
+        <img style="height: 40vh;" src="img/lazy.svg" alt="">
+      </section>
 
-        <section data-background-color="#ffd139">
-          <h1>III</h1>
-          <h2>Про настройки</h2>
-        </section>
-        <section>
-          <h2>Webpack</h2>
-          <pre style="font-size: 0.2em;"><code class="javascript" data-trim>
-              const path = require('path');
+      <section data-background-color="#ffd139">
+        <h1>III</h1>
+        <h2>Про настройки</h2>
+      </section>
+      <section>
+        <h2>Webpack</h2>
+        <pre style="font-size: 0.2em;"><code class="javascript" data-trim>
+            const path = require('path');
 
-              module.exports = {
-              entry: './src/index.js',
-              output: {
-              path: path.resolve(__dirname, 'dist'),
-              filename: 'bundle.js',
-              clean: true,
-              },
-              mode: 'development',
-              module: {
-              rules: [
-              {
-              test: /\.(js|jsx)$/,
-              exclude: /node_modules/,
-              use: {
-              loader: 'babel-loader',
-              options: {
-              presets: [
-              '@babel/preset-env', '@babel/preset-react'
-              ],
-              },
-              },
-              },
-              {
-              test: /\.css$/,
-              use: [ 'style-loader', 'css-loader' ],
-              },
-              ],
-              },
-              resolve: {
-              extensions: ['.js', '.jsx'],
-              },
-              devServer: {
-              static: path.join(__dirname, 'dist'),
-              compress: true,
-              port: 3000,
-              },
-              };
-            </code></pre>
-        </section>
-        <section>
-          <div style="text-align: left; font-size: 0.7em;">
-            <p>&mdash; Сейчас у каждого свой конфиг! Давайте переиспользовать!</p>
-            <p>&mdash; Зачем?</p>
-            <p>&mdash; Вот нужно будет поменять...</p>
-          </div>
-        </section>
-        <section>
-          <h2>Все просто</h2>
-          <pre><code data-trim class="javascript">
-              module.exports = require(&#39;@my-company/configs/webpack.config&#39;);
-            </code></pre>
-        </section>
-        <section>
-          <p>&mdash; Мне нужно добавить плагин!</p>
-        </section>
-        <section data-transition="slide none">
-          <h2>Все просто</h2>
-          <pre style="font-size: 0.5em;"><code data-trim class="javascript">
-              const commonConfig = require(&#39;@my-company/configs/webpack.config&#39;);
+            module.exports = {
+            entry: './src/index.js',
+            output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'bundle.js',
+            clean: true,
+            },
+            mode: 'development',
+            module: {
+            rules: [
+            {
+            test: /\.(js|jsx)$/,
+            exclude: /node_modules/,
+            use: {
+            loader: 'babel-loader',
+            options: {
+            presets: [
+            '@babel/preset-env', '@babel/preset-react'
+            ],
+            },
+            },
+            },
+            {
+            test: /\.css$/,
+            use: [ 'style-loader', 'css-loader' ],
+            },
+            ],
+            },
+            resolve: {
+            extensions: ['.js', '.jsx'],
+            },
+            devServer: {
+            static: path.join(__dirname, 'dist'),
+            compress: true,
+            port: 3000,
+            },
+            };
+          </code></pre>
+      </section>
+      <section>
+        <div style="text-align: left; font-size: 0.7em;">
+          <p>&mdash; Сейчас у каждого свой конфиг! Давайте переиспользовать!</p>
+          <p>&mdash; Зачем?</p>
+          <p>&mdash; Вот нужно будет поменять...</p>
+        </div>
+      </section>
+      <section>
+        <h2>Все просто</h2>
+        <pre><code data-trim class="javascript">
+            module.exports = require(&#39;@my-company/configs/webpack.config&#39;);
+          </code></pre>
+      </section>
+      <section>
+        <p>&mdash; Мне нужно добавить плагин!</p>
+      </section>
+      <section data-transition="slide none">
+        <h2>Все просто</h2>
+        <pre style="font-size: 0.5em;"><code data-trim class="javascript">
+            const commonConfig = require(&#39;@my-company/configs/webpack.config&#39;);
 
-              // свой плагин
-              module.exports = {
-              ...commonConfig,
-              plugins : [mySuperPlugin]
-              }
-            </code></pre>
-        </section>
-        <section data-transition="none slide">
-          <h2>Все просто</h2>
-          <pre style="font-size: 0.5em;"><code data-trim class="javascript" data-line-numbers>
-              const commonConfig = require(&#39;@my-company/configs/webpack.config&#39;);
+            // свой плагин
+            module.exports = {
+            ...commonConfig,
+            plugins : [mySuperPlugin]
+            }
+          </code></pre>
+      </section>
+      <section data-transition="none slide">
+        <h2>Все просто</h2>
+        <pre style="font-size: 0.5em;"><code data-trim class="javascript" data-line-numbers>
+            const commonConfig = require(&#39;@my-company/configs/webpack.config&#39;);
 
-              module.exports = {
-              ...commonConfig,
-              plugins : [
-              ...commonConfig.plugins,
-              mySuperPlugin
-              ]
-              }
-            </code></pre>
-        </section>
-        <section>
-          <h2 class="r-fit-text">
-            Добро пожаловать в ад!
-          </h2>
-          <div style="text-align: left;">
-            <p class="fragment">&mdash; Некоторые плагины нужно перенастраивать</p>
-            <p class="fragment">&mdash; У всех разные правила</p>
-            <p class="fragment">&mdash; У всех разные сервера разработки</p>
-          </div>
-        </section>
-        <section>
-          <h2>Что происходит дальше</h2>
-          <div style="text-align: left;">
-            <p>&mdash; Нам нужен frontOPS!</p>
-            <p>&mdash; Пишем фреймворк на настройке конфигов</p>
-            <p>&mdash; Не меняй корень, не понятно где все упадет</p>
-          </div>
-        </section>
-        <section>Помните react-scripts?</section>
-        <section>
-          <h2>Craco</h2>
-          <blockquote>
-            allows you to get all of the benefits of Create React App without
-            ejecting
-          </blockquote>
-          <pre class="fragment">CREATE
-            REACT
-            APP
-            CONFIGURATION
-            OVERRIDE</pre>
-        </section>
-        <section data-background-video="./img/short.mp4"> </section>
-        <section>
-          <h2>
-            Вывод: выбери одно!
-          </h2>
-          <ul>
-            <li>Переиспользовать и запрещать менять</li>
-            <li>Не переиспользовать</li>
-          </ul>
-        </section>
-        <section data-background-color="#2E2C2C">
-          <h2>Сеньорный подход</h2>
-          <ul>
-            <li>Ownership <small style="vertical-align: middle;">( делали бы вы это все за свои деньги?)</small></li>
-            <li>&laquo;Одинаковость&raquo; не окупается</li>
-            <li>Умение договориться</li>
-          </ul>
-        </section>
-        <section data-background-color="#ffd139">
-          <h1>IV</h1>
-          <h2>Про имена</h2>
-        </section>
-        <section>
-          <pre><code data-trim>
-              type LoginData = {
-              "login": "string",
-              "password": "string"
-              }
-            </code></pre>
-        </section>
-        <section>
-          <h2>На сервере</h2>
-          <pre><code data-trim>
-              {
-              "username": "aleksei.zolotykh",
-              "password": "123456"
-              }
-            </code></pre>
-        </section>
-        <section>
-          <pre><code data-trim>
-              const login = ({login, password}) =&gt; {
-              return fetch(&#39;/login&#39;, {
-              body: JSON.stringify({username: login , password}
-              })
-              }
-            </code></pre>
-        </section>
-        <section>login =&gt; username</section>
-        <section>
-          <pre><code class="js" data-trim>
-              const users = [
-              {login: "admin", ...},
-              {login: "superadmin", ...},
-              {login: "zolotyh", ...}
-              ]
-            </code></pre>
-        </section>
-        <section>
-          <h2>Маппинг в массивах</h2>
-          <!-- <pre><code class="javascript" data-trim> -->
-          <!--     users.map( -->
-          <!--       (user) =&gt; { -->
-          <!--       ...user, -->
-          <!--       username: user.login -->
-          <!--     } -->
-          <!--     ) -->
-          <!--   </code></pre> -->
-          <pre class="fragment"><code class="json" data-trim>
-              {
-              "login": "admin",
-              "username": "admin,
-              }
-            </code></pre>
-          <pre class="fragment"><code class="javascript" data-trim>
-              users.map(({login, ...rest}) =&gt; {
-              ...rest,
-              username: login
-              })
-            </code></pre>
-        </section>
-        <section>Эта проблема может быть масштабней</section>
-        <section>Проект может до 80% состоять из маппингов</section>
-        <section data-background-video="./img/gta.mp4"> </section>
-        <section>
-          Этой проблемы бы не было, если бы контракт был бы прописан вначале!
-        </section>
-        <section data-background-color="#2E2C2C">
-          <h2>Сеньорный подход</h2>
-          <ul>
-            <li>Договориться о стандартах</li>
-            <li>Понимать все части приложения</li>
-            <li>DDD и Единый язык (Ubiquitous language)</li>
-          </ul>
-        </section>
-        <section>
-          <pre><code class="yaml" style="font-size: 0.5em; line-height: 1.1" data-line-numbers="1-31|5|13|17-32">
-              openapi: 3.0.0
-              info:
-              title: API Documentation
-              version: 1.0.0
-              paths:
-              /auth/login:
-              post:
-              summary: User login
-              requestBody:
-              required: true
-              content:
-              application/json:
-              schema:
-              $ref: '#/components/schemas/LoginCredentials'
-              responses:
-              '200':
-              description: Successful login
-              components:
-              schemas:
-              LoginCredentials:
-              type: object
-              required:
-              - username
-              - password
-              properties:
-              username:
-              type: string
-              description: User's username or email
-              example: johndoe
-              password:
-              type: string
-              description: User's password
-              format: password
-              example: securePassword123!
-              writeOnly: true
-            </code></pre>
-        </section>
-        <section data-background-color="#ffd139">
-          <h1>V</h1>
-          <h2>Про долгие миграции</h2>
-        </section>
-        <section>
-          <h2>Разработчик</h2>
-          <ul>
-            <li>Я хочу уйти от Redux к Redux Saga</li>
-            <li class="fragment">Вот прототип</li>
-            <li class="fragment">Вот первая фича на Saga</li>
-            <li class="fragment">Остальное по правилу туриста</li>
-          </ul>
-        </section>
-        <section>
-          <h2 class="r-fit-text">Большая миграция через правило туриста</h2>
-          <blockquote style="font-size: 0.7em; text-align: left; border-left: 10px solid #222; padding-left: 0.5em">
-            A scout leaves no trace… and tries to leave the world a little
-            better than he found it
-          </blockquote>
-        </section>
-        <section>
-          Когда будем переписывать &mdash; переведем на новый стейт менеджер
-        </section>
-        <section>
-          <h2>Теперь у нас есть</h2>
-          <ul>
-            <li>Redux</li>
-            <li>Redux-saga</li>
-            <li>Redux-toolkit</li>
-            <li>RxJS</li>
-          </ul>
-          <p class="fragment">Надежда, что когда-нибудь это получится</p>
-        </section>
-        <section data-background-video="./img/gta.mp4"> </section>
-        <section>
-          <h2>Что нужно было сделать</h2>
-          <ul>
-            <li>Будет ли миграция оправдана?</li>
-            <li>Можете ли вы позволить себе миграцию?</li>
-            <li>Кто будет отвечать за миграцию?</li>
-            <li>Критерий окончания миграции</li>
-          </ul>
-        </section>
-        <section data-background-color="#2E2C2C">
-          <h2>Сеньорный подход</h2>
-          <ul>
-            <li>Взять технический долг проще чем в микрозаймах</li>
-            <li>Уметь доводить дела до конца</li>
-            <li>Ownership</li>
-          </ul>
-        </section>
-        <section data-background-color="#ffd139">
-          <h1>VI</h1>
-          <h2>Про BFF и лишний сервер</h2>
-        </section>
-        <section>
+            module.exports = {
+            ...commonConfig,
+            plugins : [
+            ...commonConfig.plugins,
+            mySuperPlugin
+            ]
+            }
+          </code></pre>
+      </section>
+      <section>
+        <h2 class="r-fit-text">
+          Добро пожаловать в ад!
+        </h2>
+        <div style="text-align: left;">
+          <p class="fragment">&mdash; Некоторые плагины нужно перенастраивать</p>
+          <p class="fragment">&mdash; У всех разные правила</p>
+          <p class="fragment">&mdash; У всех разные сервера разработки</p>
+        </div>
+      </section>
+      <section>
+        <h2>Что происходит дальше</h2>
+        <div style="text-align: left;">
+          <p>&mdash; Нам нужен frontOPS!</p>
+          <p>&mdash; Пишем фреймворк на настройке конфигов</p>
+          <p>&mdash; Не меняй корень, не понятно где все упадет</p>
+        </div>
+      </section>
+      <section>Помните react-scripts?</section>
+      <section>
+        <h2>Craco</h2>
+        <blockquote>
+          allows you to get all of the benefits of Create React App without
+          ejecting
+        </blockquote>
+        <pre class="fragment">CREATE
+          REACT
+          APP
+          CONFIGURATION
+          OVERRIDE</pre>
+      </section>
+      <section data-background-video="./img/short.mp4"> </section>
+      <section>
+        <h2>
+          Вывод: выбери одно!
+        </h2>
+        <ul>
+          <li>Переиспользовать и запрещать менять</li>
+          <li>Не переиспользовать</li>
+        </ul>
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Ownership <small style="vertical-align: middle;">( делали бы вы это все за свои деньги?)</small></li>
+          <li>&laquo;Одинаковость&raquo; не окупается</li>
+          <li>Умение договориться</li>
+        </ul>
+      </section>
+      <section data-background-color="#ffd139">
+        <h1>IV</h1>
+        <h2>Про имена</h2>
+      </section>
+      <section>
+        <pre><code data-trim>
+            type LoginData = {
+            "login": "string",
+            "password": "string"
+            }
+          </code></pre>
+      </section>
+      <section>
+        <h2>На сервере</h2>
+        <pre><code data-trim>
+            {
+            "username": "aleksei.zolotykh",
+            "password": "123456"
+            }
+          </code></pre>
+      </section>
+      <section>
+        <pre><code data-trim>
+            const login = ({login, password}) =&gt; {
+            return fetch(&#39;/login&#39;, {
+            body: JSON.stringify({username: login , password}
+            })
+            }
+          </code></pre>
+      </section>
+      <section>login =&gt; username</section>
+      <section>
+        <pre><code class="js" data-trim>
+            const users = [
+            {login: "admin", ...},
+            {login: "superadmin", ...},
+            {login: "zolotyh", ...}
+            ]
+          </code></pre>
+      </section>
+      <section>
+        <h2>Маппинг в массивах</h2>
+        <!-- <pre><code class="javascript" data-trim> -->
+        <!--     users.map( -->
+        <!--       (user) =&gt; { -->
+        <!--       ...user, -->
+        <!--       username: user.login -->
+        <!--     } -->
+        <!--     ) -->
+        <!--   </code></pre> -->
+        <pre class="fragment"><code class="json" data-trim>
+            {
+            "login": "admin",
+            "username": "admin,
+            }
+          </code></pre>
+        <pre class="fragment"><code class="javascript" data-trim>
+            users.map(({login, ...rest}) =&gt; {
+            ...rest,
+            username: login
+            })
+          </code></pre>
+      </section>
+      <section>Эта проблема может быть масштабней</section>
+      <section>Проект может до 80% состоять из маппингов</section>
+      <section data-background-video="./img/gta.mp4"> </section>
+      <section>
+        Этой проблемы бы не было, если бы контракт был бы прописан вначале!
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Договориться о стандартах</li>
+          <li>Понимать все части приложения</li>
+          <li>DDD и Единый язык (Ubiquitous language)</li>
+        </ul>
+      </section>
+      <section>
+        <pre><code class="yaml" style="font-size: 0.5em; line-height: 1.1" data-line-numbers="1-31|5|13|17-32">
+            openapi: 3.0.0
+            info:
+            title: API Documentation
+            version: 1.0.0
+            paths:
+            /auth/login:
+            post:
+            summary: User login
+            requestBody:
+            required: true
+            content:
+            application/json:
+            schema:
+            $ref: '#/components/schemas/LoginCredentials'
+            responses:
+            '200':
+            description: Successful login
+            components:
+            schemas:
+            LoginCredentials:
+            type: object
+            required:
+            - username
+            - password
+            properties:
+            username:
+            type: string
+            description: User's username or email
+            example: johndoe
+            password:
+            type: string
+            description: User's password
+            format: password
+            example: securePassword123!
+            writeOnly: true
+          </code></pre>
+      </section>
+      <section data-background-color="#ffd139">
+        <h1>V</h1>
+        <h2>Про долгие миграции</h2>
+      </section>
+      <section>
+        <h2>Разработчик</h2>
+        <ul>
+          <li>Я хочу уйти от Redux к Redux Saga</li>
+          <li class="fragment">Вот прототип</li>
+          <li class="fragment">Вот первая фича на Saga</li>
+          <li class="fragment">Остальное по правилу туриста</li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="r-fit-text">Большая миграция через правило туриста</h2>
+        <blockquote style="font-size: 0.7em; text-align: left; border-left: 10px solid #222; padding-left: 0.5em">
+          A scout leaves no trace… and tries to leave the world a little
+          better than he found it
+        </blockquote>
+      </section>
+      <section>
+        Когда будем переписывать &mdash; переведем на новый стейт менеджер
+      </section>
+      <section>
+        <h2>Теперь у нас есть</h2>
+        <ul>
+          <li>Redux</li>
+          <li>Redux-saga</li>
+          <li>Redux-toolkit</li>
+          <li>RxJS</li>
+        </ul>
+        <p class="fragment">Надежда, что когда-нибудь это получится</p>
+      </section>
+      <section data-background-video="./img/gta.mp4"> </section>
+      <section>
+        <h2>Что нужно было сделать</h2>
+        <ul>
+          <li>Будет ли миграция оправдана?</li>
+          <li>Можете ли вы позволить себе миграцию?</li>
+          <li>Кто будет отвечать за миграцию?</li>
+          <li>Критерий окончания миграции</li>
+        </ul>
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Взять технический долг проще чем в микрозаймах</li>
+          <li>Уметь доводить дела до конца</li>
+          <li>Ownership</li>
+        </ul>
+      </section>
+      <section data-background-color="#ffd139">
+        <h1>VI</h1>
+        <h2>Про BFF и лишний сервер</h2>
+      </section>
+      <section>
 
-          <h2>Что такое BFF</h2>
-          <div class="mermaid">
-            <pre>
-              %%{init: {'theme':'neutral'}}%%
-              graph TB
-              subgraph "Традиционный подход (БЕЗ BFF)"
-              Web1[Web приложение]
-              Mobile1[Mobile приложение]
-              Desktop1[Desktop приложение]
+        <h2>Что такое BFF</h2>
+        <div class="mermaid">
+          <pre>
+            %%{init: {'theme':'neutral'}}%%
+            graph TB
+            subgraph "Традиционный подход (БЕЗ BFF)"
+            Web1[Web приложение]
+            Mobile1[Mobile приложение]
+            Desktop1[Desktop приложение]
 
-              Web1 --> API1[Общий API Gateway]
-              Mobile1 --> API1
-              Desktop1 --> API1
+            Web1 --> API1[Общий API Gateway]
+            Mobile1 --> API1
+            Desktop1 --> API1
 
-              API1 --> MS1[Микросервис Юзеры]
-              API1 --> MS2[Микросервис Заказы]
-              API1 --> MS3[Микросервис Продукты]
-              API1 --> MS4[Микросервис Оплата]
+            API1 --> MS1[Микросервис Юзеры]
+            API1 --> MS2[Микросервис Заказы]
+            API1 --> MS3[Микросервис Продукты]
+            API1 --> MS4[Микросервис Оплата]
 
-              style API1 fill:#ffcccc
-              end
+            style API1 fill:#ffcccc
+            end
 
-              subgraph "BFF паттерн (С BFF)"
-              Web2[Web приложение]
-              Mobile2[Mobile приложение]
-              Desktop2[Desktop приложение]
+            subgraph "BFF паттерн (С BFF)"
+            Web2[Web приложение]
+            Mobile2[Mobile приложение]
+            Desktop2[Desktop приложение]
 
-              Web2 --> BFF1[BFF для Web]
-              Mobile2 --> BFF2[BFF для Mobile]
-              Desktop2 --> BFF3[BFF для Desktop]
+            Web2 --> BFF1[BFF для Web]
+            Mobile2 --> BFF2[BFF для Mobile]
+            Desktop2 --> BFF3[BFF для Desktop]
 
-              BFF1 --> CoreMS1[Микросервис Юзеры]
-              BFF1 --> CoreMS2[Микросервис Заказы]
-              BFF1 --> CoreMS3[Микросервис Продукты]
+            BFF1 --> CoreMS1[Микросервис Юзеры]
+            BFF1 --> CoreMS2[Микросервис Заказы]
+            BFF1 --> CoreMS3[Микросервис Продукты]
 
-              BFF2 --> CoreMS1
-              BFF2 --> CoreMS2
-              BFF2 --> CoreMS4[Микросервис Оплата]
+            BFF2 --> CoreMS1
+            BFF2 --> CoreMS2
+            BFF2 --> CoreMS4[Микросервис Оплата]
 
-              BFF3 --> CoreMS1
-              BFF3 --> CoreMS2
-              BFF3 --> CoreMS3
-              BFF3 --> CoreMS4
+            BFF3 --> CoreMS1
+            BFF3 --> CoreMS2
+            BFF3 --> CoreMS3
+            BFF3 --> CoreMS4
 
-              style BFF1 fill:#ccffcc
-              style BFF2 fill:#ccffcc
-              style BFF3 fill:#ccffcc
-              end
-            </pre>
-          </div>
-          <p class="fragment">SSR &mdash; это BFF</p>
-        </section>
-        <section>
+            style BFF1 fill:#ccffcc
+            style BFF2 fill:#ccffcc
+            style BFF3 fill:#ccffcc
+            end
+          </pre>
+        </div>
+        <p class="fragment">SSR &mdash; это BFF</p>
+      </section>
+      <section>
 
-          <p>Мешает FCP и LCP</p>
-          <div class="mermaid">
-            <pre>
-              %%{init: {'theme':'neutral'}}%%
-              graph TB
+        <p>Мешает FCP и LCP</p>
+        <div class="mermaid">
+          <pre>
+            %%{init: {'theme':'neutral'}}%%
+            graph TB
 
-              subgraph "400мс до старта загрузки"
-              Web2[Web приложение]
-              Mobile2[Mobile приложение]
-              Desktop2[Desktop приложение]
+            subgraph "400мс до старта загрузки"
+            Web2[Web приложение]
+            Mobile2[Mobile приложение]
+            Desktop2[Desktop приложение]
 
-              Web2 --> |100мс|BFF1[BFF для Web]
-              Mobile2 --> BFF2[BFF для Mobile]
-              Desktop2 --> BFF3[BFF для Desktop]
+            Web2 --> |100мс|BFF1[BFF для Web]
+            Mobile2 --> BFF2[BFF для Mobile]
+            Desktop2 --> BFF3[BFF для Desktop]
 
-              BFF1 --> |300мс|CoreMS1[Микросервис Юзеры]
-              BFF1 --> CoreMS2[Микросервис Заказы]
-              BFF1 --> |100мс|CoreMS3[Микросервис Продукты]
+            BFF1 --> |300мс|CoreMS1[Микросервис Юзеры]
+            BFF1 --> CoreMS2[Микросервис Заказы]
+            BFF1 --> |100мс|CoreMS3[Микросервис Продукты]
 
-              BFF2 --> CoreMS1
-              BFF2 --> CoreMS2
-              BFF2 --> CoreMS4[Микросервис Оплата]
+            BFF2 --> CoreMS1
+            BFF2 --> CoreMS2
+            BFF2 --> CoreMS4[Микросервис Оплата]
 
-              BFF3 --> CoreMS1
-              BFF3 --> CoreMS2
-              BFF3 --> CoreMS3
-              BFF3 --> CoreMS4
+            BFF3 --> CoreMS1
+            BFF3 --> CoreMS2
+            BFF3 --> CoreMS3
+            BFF3 --> CoreMS4
 
-              style BFF1 fill:#ccffcc
-              style BFF2 fill:#ccffcc
-              style BFF3 fill:#ccffcc
-              linkStyle 0 stroke:#ff0000,stroke-width:2px
-              linkStyle 3 stroke:#ff0000,stroke-width:2px
-              linkStyle 5 stroke:#ff0000,stroke-width:2px
-              end
-            </pre>
-          </div>
-        </section>
-        <section>
-          <h2>Север требует поддержки</h2>
-          <ul>
-            <li class="fragment">Мониторинг</li>
-            <li class="fragment">Алертинг</li>
-            <li class="fragment">Логирование</li>
-            <li class="fragment">Деплой</li>
-            <li class="fragment">Трейсинг</li>
-            <li class="fragment">Иногда замедляет</li>
-          </ul>
-        </section>
-        <section data-transition="slide none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a1.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a2.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a3.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a3.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a4.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a4.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в разработке</h2>
-          <img src="img/a5.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в продакшн</h2>
-          <img src="img/a5.png" alt="">
-        </section>
-        <section data-transition="none">
-          <h2>Оптимизация в продакшн</h2>
-          <img src="img/a6.png" alt="">
-        </section>
-        <section data-background-video="./img/short.mp4"> </section>
-        <section data-transition="none">
-          <h2>Выводы</h2>
-          <ul>
-            <li>Если можно без сервера, то лучше без сервера</li>
-            <li>Мониторим в проде</li>
-            <li>Считаем</li>
-          </ul>
-        </section>
-        <section data-background-color="#2E2C2C">
-          <h2>Сеньорный подход</h2>
-          <ul>
-            <li>Узнаем НФТ, считаем ресурсы</li>
-            <li>Данные &mdash; наше все</li>
-            <li>Скептическое мышление</li>
-          </ul>
-        </section>
-        <section data-background-color="#ffd139" style="font-size: 0.8em;">
-          <h2>Эпилог</h2>
-          <ul>
-            <li class="fragment">Все хотели сделать хорошо</li>
-            <li class="fragment">Весь сеньорный раздел был про софтскиллы
-              <ul>
-                <li class="fragment">Понимание бизнеса</li>
-                <li class="fragment">Работа с неопределенностью</li>
-                <li class="fragment">Ownership и ответственность</li>
-                <li class="fragment">Умение доводить дела до конца</li>
-                <li class="fragment">Навыки переговоров и согласования</li>
-                <li class="fragment">Скептическое мышление</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Спасибо!</h2>
-          <img src="img/qr.gif" alt="Вопросы">
-          <p><a href="htts://t.me/zolotyh">@zolotyh</a></p>
-        </section>
+            style BFF1 fill:#ccffcc
+            style BFF2 fill:#ccffcc
+            style BFF3 fill:#ccffcc
+            linkStyle 0 stroke:#ff0000,stroke-width:2px
+            linkStyle 3 stroke:#ff0000,stroke-width:2px
+            linkStyle 5 stroke:#ff0000,stroke-width:2px
+            end
+          </pre>
+        </div>
+      </section>
+      <section>
+        <h2>Север требует поддержки</h2>
+        <ul>
+          <li class="fragment">Мониторинг</li>
+          <li class="fragment">Алертинг</li>
+          <li class="fragment">Логирование</li>
+          <li class="fragment">Деплой</li>
+          <li class="fragment">Трейсинг</li>
+          <li class="fragment">Иногда замедляет</li>
+        </ul>
+      </section>
+      <section data-transition="slide none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a1.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a2.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a3.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a3.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a4.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a4.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в разработке</h2>
+        <img src="img/a5.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в продакшн</h2>
+        <img src="img/a5.png" alt="">
+      </section>
+      <section data-transition="none">
+        <h2>Оптимизация в продакшн</h2>
+        <img src="img/a6.png" alt="">
+      </section>
+      <section data-background-video="./img/short.mp4"> </section>
+      <section data-transition="none">
+        <h2>Выводы</h2>
+        <ul>
+          <li>Если можно без сервера, то лучше без сервера</li>
+          <li>Мониторим в проде</li>
+          <li>Считаем</li>
+        </ul>
+      </section>
+      <section data-background-color="#2E2C2C">
+        <h2>Сеньорный подход</h2>
+        <ul>
+          <li>Узнаем НФТ, считаем ресурсы</li>
+          <li>Данные &mdash; наше все</li>
+          <li>Скептическое мышление</li>
+        </ul>
+      </section>
+      <section data-background-color="#ffd139" style="font-size: 0.8em;">
+        <h2>Эпилог</h2>
+        <ul>
+          <li class="fragment">Все хотели сделать хорошо</li>
+          <li class="fragment">Весь сеньорный раздел был про софтскиллы
+            <ul>
+              <li class="fragment">Понимание бизнеса</li>
+              <li class="fragment">Работа с неопределенностью</li>
+              <li class="fragment">Ownership и ответственность</li>
+              <li class="fragment">Умение доводить дела до конца</li>
+              <li class="fragment">Навыки переговоров и согласования</li>
+              <li class="fragment">Скептическое мышление</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Спасибо!</h2>
+        <img src="img/qr.gif" alt="Вопросы">
+        <p><a href="htts://t.me/zolotyh">@zolotyh</a></p>
+      </section>
     </div>
   </div>
 
